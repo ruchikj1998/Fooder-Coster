@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "this is react edu practice by Ruchik Joshi",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/ruchikj1998/react-edu#readme",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
     "parcel": "^2.12.0",
     "process": "^0.11.10"
   },
