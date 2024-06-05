@@ -18,6 +18,12 @@ body {
         .bodyContainer {
             margin-top: 10px;
             text-align: center;
+            .filter {
+                .filter-btn {
+                    margin: 10px;
+                    cursor: pointer;
+                }
+            }
             .resContainer {
                 .resCards {
                     display: flex;
