@@ -40,7 +40,7 @@ export default function Body() {
     function filterClick(e) {
         const baseRatings = 4.0;
         let filteredList = resList.filter((restaurant) => restaurant.info.avgRating > baseRatings);
-        setResList(filteredList);
+        setResFilteredList(filteredList);
     }
 
     const searchRes = (searchText, restaurants) => {
@@ -56,7 +56,7 @@ export default function Body() {
         }
     };
 
-    // Shimmer UI : Vid 06 Time  remaining 01:20:20
+    // Shimmer UI : Conditional rendring
     if (resList?.length === 0) {
         return <Shimmer />;
     }

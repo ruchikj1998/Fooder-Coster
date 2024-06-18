@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../logo.png';
 
+
+// Vid 06 time remaining : 50 mins
 export default function Header() {
-  return (
-    <div className="header">
+    const [userLoginLink, setUserLoginLink] = useState("Login")
+    return (
+        <div className="header">
             <div className="logo">
                 <img src={logo} width="200" />
             </div>
@@ -13,8 +16,11 @@ export default function Header() {
                     <li>Home</li>
                     <li>About Us</li>
                     <li>Contact Us</li>
+                    <li onClick={() => {
+                        userLoginLink === "Login" ? setUserLoginLink("Logout") : setUserLoginLink("Login");
+                    }}><a>{userLoginLink}</a></li>
                 </ul>
             </div>
         </div>
-  )
+    )
 }
