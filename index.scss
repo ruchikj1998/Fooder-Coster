@@ -18,6 +18,14 @@ body {
         .bodyContainer {
             margin-top: 10px;
             text-align: center;
+            .searchBar, .filter {
+                width: max-content;
+            }
+            .searchBar {
+                .search {
+                    margin-right: 10px;
+                }
+            }
             .filter {
                 .filter-btn {
                     margin: 10px;
@@ -45,6 +53,30 @@ body {
                         }
                         p {
 
+                        }
+                    }
+                }
+            }
+            .shimmer-container {
+                .shimmer-buttons {
+                    .shimmer-dummy-button {
+                        width: 250px;
+                        height: 21px;
+                        background-color: #f0f0f0;
+                        margin: 10px;
+                    }
+                }
+                .resContainer {
+                    .resCards {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .card {
+                            margin: 5px;
+                            width: 322px;
+                            height: 539px;
+                            border: 1px solid black;
+                            background-color: #f0f0f0;
+                            padding: 10px;
                         }
                     }
                 }
