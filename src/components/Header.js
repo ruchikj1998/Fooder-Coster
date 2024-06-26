@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import logo from '../../logo.png';
 
 
-// Vid 06 time remaining : 50 mins
 export default function Header() {
     const [userLoginLink, setUserLoginLink] = useState("Login")
     return (

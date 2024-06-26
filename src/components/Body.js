@@ -2,14 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import ResCards from './ResCards';
 import Shimmer from './Shimmer';
-
-// Filter the restaurant data according input type
-function filterData(searchText, restaurants) {
-    const resFilterData = restaurants.filter((restaurant) =>
-        restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    return resFilterData;
-}
+import { SWIGGY_RESTAURANT_API } from '../utils/constants';
 
 export default function Body() {
 
@@ -24,7 +17,7 @@ export default function Body() {
 
     const fetchData = async () => {
         try {
-            const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+            const data = await fetch("https://corsproxy.io/?" + SWIGGY_RESTAURANT_API);
             const jsonResponse = await data.json();
             const restaurantList = jsonResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             if (restaurantList) {
@@ -45,29 +38,27 @@ export default function Body() {
 
     const searchRes = (searchText, restaurants) => {
         if (searchText !== '') {
-            const filteredData = filterData(searchText, restaurants);
+            const filteredData = restaurants.filter((restaurant) =>
+                restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+            );
             setResFilteredList(filteredData);
             setErrorMessage("");
             if (filteredData?.length === 0) {
                 setErrorMessage("No matches restaurant found");
             }
         } else {
+            setErrorMessage("");
             setResFilteredList(restaurants);
         }
     };
 
     // Shimmer UI : Conditional rendring
-    if (resList?.length === 0) {
-        return <Shimmer />;
-    }
-
-
-    return (
+    return resList?.length === 0 ? <Shimmer /> : (
         <div className="bodyContainer">
             <div className='searchBar'>
                 <input type='text' className='search' id="searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
                 <button className='searchButton' onClick={() => {
-                    // user click on button searchData function is called
+                    // user click on button searchRes function is called
                     searchRes(searchText, resList);
                 }}>Search</button>
             </div>
@@ -81,7 +72,10 @@ export default function Body() {
                 <div className="resCards">
                     {
                         resFilteredList.map((restaurant) => {
-                            return (<ResCards key={restaurant.info.id} resData={restaurant} />);
+                            return (<ResCards
+                                key={restaurant.info.id}
+                                resData={restaurant}
+                            />);
                         }
                         )
                     }
