@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import ResCards from './ResCards';
 import Shimmer from './Shimmer';
 import { SWIGGY_RESTAURANT_API } from '../utils/constants';
+import { Link } from 'react-router-dom';
 
 export default function Body() {
 
@@ -72,12 +73,14 @@ export default function Body() {
                 <div className="resCards">
                     {
                         resFilteredList.map((restaurant) => {
-                            return (<ResCards
-                                key={restaurant.info.id}
-                                resData={restaurant}
-                            />);
-                        }
-                        )
+                            return (
+                                <Link key={restaurant.info.id} to={"/reataurants/"+ restaurant.info.id}>
+                                <ResCards
+                                    resData={restaurant}
+                                />
+                                </Link>
+                            );
+                        })
                     }
                 </div>
             </div>
