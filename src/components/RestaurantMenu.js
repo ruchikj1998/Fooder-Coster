@@ -1,31 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { SWIGGY_MENU_API } from '../utils/constants';
+import React from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 export default function RestaurantMenu() {
 
-    const [resInfo, setResInfo] = useState(null);
+    
     const {resID} = useParams();
-
-    useEffect(() => {
-        fetchData();
-    }, [])
-
-    const fetchData = async () => {
-        try {
-            const data = await fetch("https://corsproxy.io/?" + SWIGGY_MENU_API + resID);
-            const jsonResponse = await data.json();
-            setResInfo(jsonResponse?.data)
-            console.log(jsonResponse?.data)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
+    const resInfo = useRestaurantMenu(resID);
+    
     if (resInfo === null) return <Shimmer />;
     console.log(resInfo);
-
     const { name, avgRating, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;
 
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
