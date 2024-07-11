@@ -4,6 +4,7 @@ import ResCards from './ResCards';
 import Shimmer from './Shimmer';
 import { SWIGGY_RESTAURANT_API } from '../utils/constants';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 export default function Body() {
 
@@ -52,6 +53,12 @@ export default function Body() {
             setResFilteredList(restaurants);
         }
     };
+
+
+    const onlineStatus = useOnlineStatus();
+
+
+    if(!onlineStatus) return <h1>You are offline!!</h1>
 
     // Shimmer UI : Conditional rendring
     return resList?.length === 0 ? <Shimmer /> : (
