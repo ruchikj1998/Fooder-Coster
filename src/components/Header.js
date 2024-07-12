@@ -7,22 +7,22 @@ export default function Header() {
     const [userLoginLink, setUserLoginLink] = useState("Login")
     const onlineStatus = useOnlineStatus();
     return (
-        <div className="header">
-            <div className="logo">
-                <img src={logo} width="200" />
+        <div className="header flex justify-between w-full shadow-md">
+            <div className="logo w-1/6">
+                <img className='shadow-md' src={logo} width="200" />
             </div>
 
-            <div className="nav">
-                <ul>
-                    <li>Online Status : { onlineStatus ? "🟢" : "🔴"  }</li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact"> Contact Us</Link></li>
+            <div className="nav w-5/6 flex justify-end items-center ">
+                <ul className='flex p-4 m-4 font-bold'>
+                    <li className='mx-2'>Online Status : { onlineStatus ? "🟢" : "🔴"  }</li>
+                    <li className='mx-2 hover:underline'><Link to="/">Home</Link></li>
+                    <li className='mx-2 hover:underline'><Link to="/about">About Us</Link></li>
+                    <li className='mx-2 hover:underline'><Link to="/contact"> Contact Us</Link></li>
                     {/* <li onClick={() => {
                         userLoginLink === "Login" ? setUserLoginLink("Logout") : setUserLoginLink("Login");
                     }}><a>{userLoginLink}</a></li> */}
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/grocery"> Grocery</Link></li>
+                    <li className='mx-2 hover:underline'><Link to="/login">Login</Link></li>
+                    <li className='mx-2 hover:underline'><Link to="/grocery"> Grocery</Link></li>
                 </ul>
             </div>
         </div>

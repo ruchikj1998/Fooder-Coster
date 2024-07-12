@@ -20,7 +20,7 @@ const Footer = () => (
 );
 
 const Main = () => (
-    <div className="container">
+    <div className="">
         <Header />
         <Outlet />
         <Footer />
