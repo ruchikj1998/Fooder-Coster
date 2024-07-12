@@ -1,32 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import MenuCategories from './MenuCategories';
 
 export default function RestaurantMenu() {
 
-    
-    const {resID} = useParams();
+    const [showIndex, setShowIndex] = useState(0);
+    const { resID } = useParams();
     const resInfo = useRestaurantMenu(resID);
-    
+
     if (resInfo === null) return <Shimmer />;
-    console.log(resInfo);
+
     const { name, avgRating, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;
 
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
-    console.log(itemCards);
+    const menuCategories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter( 
+        (c) => 
+            c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
     return (
-        <div className='menu'>
-            <h1>{name}</h1>
+        <div className='container text-center m-auto'>
+            <h1 className='text-2xl font-bold my-4'>{name}</h1>
             <p>{cuisines.join(", ")} - Rs {costForTwoMessage}</p>
 
-            <h3>Menu</h3>
-            <ul>
-                {itemCards.map(item => <li key={item.card.info.id}>
-                    {item.card.info.name} - Rs {item.card.info.defaultPrice / 100 || item.card.info.price / 100}
-                    </li>)}
-            </ul>
+            <div className='mt-4 w-8/12 m-auto'>
+            {
+                menuCategories.map((categories, index) => {
+                    return <MenuCategories 
+                    key={categories?.card?.card?.title} 
+                    categories={categories} 
+                    showItems={index === showIndex ? true : false}
+                    setShowIndex={() => { 
+                        index === showIndex ? setShowIndex(null) : setShowIndex(index) ;
+                    }}
+                    />
+                })
+            }
+            </div>
         </div>
     )
 }

@@ -29,7 +29,7 @@ export default function Body() {
                 setResFilteredList(restaurantList);
             }
             console.log("Fetched data!");
-            console.log(restaurantList)
+            //console.log(restaurantList)
         } catch (error) {
             console.log(error);
         }
