@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../logo.png';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import UserInfo from '../utils/UserInfoContext';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
-    const [userLoginLink, setUserLoginLink] = useState("Login")
+    //const [userLoginLink, setUserLoginLink] = useState("Login")
     const onlineStatus = useOnlineStatus();
+    const {userName} = useContext(UserInfo);
+
+    //Redux selector - Subscribing to the store using selector
+    const cartItems = useSelector((store) => {
+        return store.cart.items;
+    });
+    
+    console.log(cartItems)
+
     return (
         <div className="header flex justify-between w-full shadow-md">
             <div className="logo w-1/6">
@@ -21,8 +32,9 @@ export default function Header() {
                     {/* <li onClick={() => {
                         userLoginLink === "Login" ? setUserLoginLink("Logout") : setUserLoginLink("Login");
                     }}><a>{userLoginLink}</a></li> */}
-                    <li className='mx-2 hover:underline'><Link to="/login">Login</Link></li>
+                    <li className='mx-2 hover:underline'><Link to="/login">Login : {userName}</Link></li>
                     <li className='mx-2 hover:underline'><Link to="/grocery"> Grocery</Link></li>
+                    <li className='mx-2 hover:underline'><Link to="/cart"> Cart ({cartItems.length} items)</Link></li>
                 </ul>
             </div>
         </div>

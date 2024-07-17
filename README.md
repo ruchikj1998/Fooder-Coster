@@ -17,4 +17,13 @@
 - Error handling
 - Https support
 - Tree shaking - will remove unused code
-- 
+-
+
+
+# Redux ToolKit
+- Install @reduxjs/toolkit and redux react-redux
+- Build our store
+- Connect our store to our app
+- Create Slice (cartSlice)
+- Dispatch action
+- Selector

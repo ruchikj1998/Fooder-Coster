@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import FunctionBasedCard from "./FunctionBasedCard"
 import ClassBasedCard from "./ClassBasedCard"
+import UserInfoContext from '../utils/UserInfoContext';
 
 // Video paused at Vid 9 - 1:07 hours remaining 
 export default function About() {
@@ -12,12 +13,13 @@ export default function About() {
     console.log("Use Effect called! " + i);
   })
 
-  
+  const {userName} = useContext(UserInfoContext);
 
   return (
     <div>
       <h1>About Us</h1>
       <p>This is about us page</p>
+      <p>{userName}</p>
 
       <button onClick={() => {
         let temp = i + 1;

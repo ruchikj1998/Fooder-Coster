@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState, useEffect } from 'react';
-import ResCards, {promotedResCards} from './ResCards';
+import ResCards, { promotedResCards } from './ResCards';
 import Shimmer from './Shimmer';
 import { SWIGGY_RESTAURANT_API } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import UserInfoContext from '../utils/UserInfoContext';
 
 export default function Body() {
 
@@ -12,6 +13,7 @@ export default function Body() {
     const [resFilteredList, setResFilteredList] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [errorMessage, setErrorMessage] = useState("");
+    const {userName, setUserInformation} = useContext(UserInfoContext);
 
     const PromotedResCards = promotedResCards(ResCards);
 
@@ -61,7 +63,7 @@ export default function Body() {
     const onlineStatus = useOnlineStatus();
 
 
-    if(!onlineStatus) return <h1>You are offline!!</h1>
+    if (!onlineStatus) return <h1>You are offline!!</h1>
 
     // Shimmer UI : Conditional rendring
     return resList?.length === 0 ? <Shimmer /> : (
@@ -76,6 +78,14 @@ export default function Body() {
                 </div>
                 <div className="filter">
                     <button className='filter-btn p-2 px-4 bg-gray-500 text-gray-50 m-2 rounded-md' onClick={filterClick} >Top rated restaurants</button>
+
+                    <input type='text' 
+                    className='user border-dotted border-2 border-black hover:border-solid rounded-md p-2 mx-4 ' 
+                    placeholder='User Name' 
+                    id="" 
+                    value={userName}
+                    onChange={(e) => { setUserInformation(e.target.value) }}
+                    />
                 </div>
             </div>
             {errorMessage && <div className="error-container">{errorMessage}</div>}
@@ -85,7 +95,7 @@ export default function Body() {
                     {
                         resFilteredList.map((restaurant) => {
                             return (
-                                <Link key={restaurant.info.id} to={"/reataurants/"+ restaurant.info.id}>
+                                <Link key={restaurant.info.id} to={"/reataurants/" + restaurant.info.id}>
                                     {
                                         restaurant.info.avgRating > 4.3 ? <PromotedResCards resData={restaurant} /> : <ResCards resData={restaurant} />
                                     }
