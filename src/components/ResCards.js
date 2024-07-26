@@ -5,7 +5,7 @@ export default function ResCards(props) {
     const { resData } = props;
     const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info;
     return (
-        <div className="card rounded-md bg-gray-200 p-2 m-2 w-72 hover:bg-gray-400">
+        <div data-testid="res-card" className="card rounded-md bg-gray-200 p-2 m-2 w-72 hover:bg-gray-400">
             <div className='w-full'>
                 <img className='mb-4 w-full object-cover size-60 rounded-md' src={RES_IMAGE_URL + cloudinaryImageId} />
             </div>

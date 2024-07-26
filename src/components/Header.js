@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import logo from '../../logo.png';
+//import logo from '../../public/logo.png';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import UserInfo from '../utils/UserInfoContext';
@@ -15,12 +15,11 @@ export default function Header() {
         return store.cart.items;
     });
     
-    console.log(cartItems)
 
     return (
-        <div className="header flex justify-between w-full shadow-md">
+        <div data-testid="header" className="header flex justify-between w-full shadow-md">
             <div className="logo w-1/6">
-                <img className='shadow-md' src={logo} width="200" />
+                {/* <img className='shadow-md' src={logo} width="200" /> */}
             </div>
 
             <div className="nav w-5/6 flex justify-end items-center ">

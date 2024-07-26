@@ -13,7 +13,7 @@ export default function Body() {
     const [resFilteredList, setResFilteredList] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [errorMessage, setErrorMessage] = useState("");
-    const {userName, setUserInformation} = useContext(UserInfoContext);
+    const { userName, setUserInformation } = useContext(UserInfoContext);
 
     const PromotedResCards = promotedResCards(ResCards);
 
@@ -30,7 +30,7 @@ export default function Body() {
                 setResList(restaurantList);
                 setResFilteredList(restaurantList);
             }
-            console.log("Fetched data!");
+            //console.log("Fetched data!");
             //console.log(restaurantList)
         } catch (error) {
             console.log(error);
@@ -70,21 +70,27 @@ export default function Body() {
         <div className="bodyContainer mt-2">
             <div className='flex justify-between'>
                 <div className='searchBar'>
-                    <input type='text' className='search border-dotted border-2 border-black hover:border-solid rounded-md p-2 mx-4 ' id="searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                    <input data-testid="searchInput"
+                        type='text'
+                        className='search border-dotted border-2 border-black hover:border-solid rounded-md p-2 mx-4 '
+                        id="searchInput"
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                    />
                     <button className='searchButton p-2 px-4 bg-green-400 m-2 rounded-md' onClick={() => {
                         // user click on button searchRes function is called
                         searchRes(searchText, resList);
                     }}>Search</button>
                 </div>
                 <div className="filter">
-                    <button className='filter-btn p-2 px-4 bg-gray-500 text-gray-50 m-2 rounded-md' onClick={filterClick} >Top rated restaurants</button>
+                    <button data-testid="topRatedBtn" className='filter-btn p-2 px-4 bg-gray-500 text-gray-50 m-2 rounded-md' onClick={filterClick} >Top rated restaurants</button>
 
-                    <input type='text' 
-                    className='user border-dotted border-2 border-black hover:border-solid rounded-md p-2 mx-4 ' 
-                    placeholder='User Name' 
-                    id="" 
-                    value={userName}
-                    onChange={(e) => { setUserInformation(e.target.value) }}
+                    <input type='text'
+                        className='user border-dotted border-2 border-black hover:border-solid rounded-md p-2 mx-4 '
+                        placeholder='User Name'
+                        id=""
+                        value={userName}
+                        onChange={(e) => { setUserInformation(e.target.value) }}
                     />
                 </div>
             </div>

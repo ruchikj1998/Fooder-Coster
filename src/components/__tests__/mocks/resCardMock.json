@@ -1,0 +1,78 @@
+{
+    "info": {
+        "id": "355240",
+        "name": "Sandwich N Shakes",
+        "cloudinaryImageId": "upnzhnaezkn1k11j2npx",
+        "locality": "IIM Road",
+        "areaName": "Vastrapur ",
+        "costForTwo": "₹100 for two",
+        "cuisines": [
+            "Snacks",
+            "Beverages"
+        ],
+        "avgRating": 3.5,
+        "veg": true,
+        "parentId": "177032",
+        "avgRatingString": "3.5",
+        "totalRatingsString": "100+",
+        "sla": {
+            "deliveryTime": 23,
+            "lastMileTravel": 3.9,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-25 mins",
+            "lastMileTravelString": "3.9 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-08-02 00:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "₹125 OFF",
+            "subHeader": "ABOVE ₹249",
+            "discountTag": "FLAT DEAL"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-a63582d4-24a5-45e5-baea-e64255a5bebe"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/sandwich-n-shakes-iim-road-vastrapur-ahmedabad-355240",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
