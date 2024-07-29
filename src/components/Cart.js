@@ -13,7 +13,7 @@ export default function Cart() {
     }
 
     return (
-        <div className='text-center m-2 p-4 container'>
+        <div className='text-center m-2 p-4 m-auto container'>
             <h1 className='text-2xl font-bold'>Cart</h1>
             <button
                 onClick={handleClearCart}

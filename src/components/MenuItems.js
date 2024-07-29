@@ -14,7 +14,7 @@ export default function MenuItems({ itemCard }) {
     }
 
     return (
-        <div className='flex w-full justify-between border-b-2 border-gray-200 my-4 pb-2'>
+        <div data-testid="menuItems" className='flex w-full justify-between border-b-2 border-gray-200 my-4 pb-2'>
             <div className='w-10/12 text-left'>
                 <span className=''>{info.name}</span>
                 <span> - Rs {info.price ? info.price / 100 : info.defaultPrice / 100}</span>
@@ -25,8 +25,7 @@ export default function MenuItems({ itemCard }) {
             <button 
             className='bg-black text-white p-2 rounded-md absolute'
             onClick={() => handleAddItem(info)}
-            >
-                Add +
+            >Add +
             </button>
                 <img src={RES_IMAGE_URL + info.imageId} className='rounded-md ' />
             </div>
