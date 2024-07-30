@@ -1,6 +1,6 @@
-# React edu practice
+# Fooder Coster is a food ordering project which I build while learning React.
 
-# Parcel
+# Parcel (Bundler)
 - Dev Build
 - Local Server
 - HMR - Hot Module Replacement
