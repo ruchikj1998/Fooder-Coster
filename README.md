@@ -17,7 +17,6 @@
 - Error handling
 - Https support
 - Tree shaking - will remove unused code
--
 
 
 # Redux ToolKit
