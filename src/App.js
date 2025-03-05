@@ -17,12 +17,6 @@ const Grocery = lazy(() => {
     return import("./components/Grocery")
 });
 
-const Footer = () => (
-    <div className="footer">
-        <a href="#">Login</a>
-    </div>
-);
-
 const Main = () => {
 
     const [userInformation, setUserInformation] = useState();
@@ -40,7 +34,6 @@ const Main = () => {
                 <div className="">
                     <Header />
                     <Outlet />
-                    <Footer />
                 </div>
             </UserInfoContext.Provider>
         </Provider>

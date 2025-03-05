@@ -30,8 +30,7 @@ export default function Body() {
                 setResList(restaurantList);
                 setResFilteredList(restaurantList);
             }
-            //console.log("Fetched data!");
-            //console.log(restaurantList)
+
         } catch (error) {
             console.log(error);
         }
@@ -85,13 +84,6 @@ export default function Body() {
                 <div className="filter">
                     <button data-testid="topRatedBtn" className='filter-btn p-2 px-4 bg-gray-500 text-gray-50 m-2 rounded-md' onClick={filterClick} >Top rated restaurants</button>
 
-                    <input type='text'
-                        className='user border-dotted border-2 border-black hover:border-solid rounded-md p-2 mx-4 '
-                        placeholder='User Name'
-                        id=""
-                        value={userName}
-                        onChange={(e) => { setUserInformation(e.target.value) }}
-                    />
                 </div>
             </div>
             {errorMessage && <div className="error-container">{errorMessage}</div>}
