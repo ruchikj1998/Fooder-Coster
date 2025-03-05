@@ -1,6 +1,6 @@
 # Fooder Coster is a food ordering project which I build while learning React.
 
-[Link text] (https://fooder-coster.vercel.app/)
+(https://fooder-coster.vercel.app/)
 
 # Parcel (Bundler)
 - Dev Build
