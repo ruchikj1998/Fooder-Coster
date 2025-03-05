@@ -38,7 +38,7 @@ export default function Body() {
 
     function filterClick(e) {
         const baseRatings = 4.5;
-        let filteredList = resList.filter((restaurant) => restaurant.info.avgRating > baseRatings);
+        let filteredList = resList.filter((restaurant) => restaurant.info.avgRating >= baseRatings);
         setResFilteredList(filteredList);
     }
 
