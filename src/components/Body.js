@@ -37,7 +37,7 @@ export default function Body() {
     }
 
     function filterClick(e) {
-        const baseRatings = 4.0;
+        const baseRatings = 4.5;
         let filteredList = resList.filter((restaurant) => restaurant.info.avgRating > baseRatings);
         setResFilteredList(filteredList);
     }
@@ -82,8 +82,12 @@ export default function Body() {
                     }}>Search</button>
                 </div>
                 <div className="filter">
-                    <button data-testid="topRatedBtn" className='filter-btn p-2 px-4 bg-gray-500 text-gray-50 m-2 rounded-md' onClick={filterClick} >Top rated restaurants</button>
-
+                    <button data-testid="topRatedBtn"
+                        className='filter-btn p-2 px-4 bg-gray-500 text-gray-50 m-2 rounded-md'
+                        onClick={filterClick} 
+                        title="Rating of 4.5 or high">
+                        Top rated restaurants
+                    </button>
                 </div>
             </div>
             {errorMessage && <div className="error-container">{errorMessage}</div>}
