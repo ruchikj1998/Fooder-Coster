@@ -28,9 +28,9 @@ export default function Header() {
                     <li className='mx-2 hover:underline'><Link to="/">Home</Link></li>
                     <li className='mx-2 hover:underline'><Link to="/about">About Us</Link></li>
                     <li className='mx-2 hover:underline'><Link to="/contact"> Contact Us</Link></li>
-                    {/* <li onClick={() => {
+                    <li onClick={() => {
                         userLoginLink === "Login" ? setUserLoginLink("Logout") : setUserLoginLink("Login");
-                    }}><a>{userLoginLink}</a></li> */}
+                    }}><a>{userLoginLink}</a></li>
                     <li className='mx-2 hover:underline'><Link to="/login">Login : {userName}</Link></li>
                     <li className='mx-2 hover:underline'><Link to="/grocery"> Grocery</Link></li>
                     <li className='mx-2 hover:underline'><Link to="/cart"> Cart ({cartItems.length} items)</Link></li>
